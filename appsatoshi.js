@@ -72,7 +72,7 @@ todo.innerHTML = "Todo: " + incompleteTasksHolder.children.length;
 completed.innerHTML = "Completed: " + completedTasksHolder.children.length;
 }
 
-// Mark tasks complete  
+// Mark tasks as complete  
 var taskCompleted = function(){
 
 	var listItem = this.parentNode;
@@ -95,9 +95,9 @@ var taskIncomplete = function(){
 }
 
 // set click handler to the addTask function (wiring)
-addButton.onclick = addTask; // the onclick set to addTask - does not call addTask, just a reference. 
-//it will call the function only when the user clicks on the button, not at the onclick assignment    
+addButton.onclick = addTask; //
 
+//connect each button to each function
 var bindTaskEvents = function(taskListItem, checkBoxEventHandler){
 
 var checkBox = taskListItem.querySelector("input[type=checkbox]");
