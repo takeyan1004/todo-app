@@ -48,6 +48,7 @@ taskInput.value = "";
 
 // Edit existing tasks 
 var editTask = function(){
+console.log("edited");
 var listItem = this.parentNode;
 
 var editInput = listItem.querySelector("input[type=text]");
@@ -67,6 +68,7 @@ listItem.classList.toggle("editMode");
 // Delete tasks
 
 var deleteTask = function(){
+console.log("deleted");
 var listItem = this.parentNode;
 listItem.parentNode.removeChild(listItem);
 
@@ -76,7 +78,7 @@ completed.innerHTML = "Completed: " + completedTasksHolder.children.length;
 
 // Mark tasks as complete  
 var taskCompleted = function(){
-
+console.log("task completed");
 	var listItem = this.parentNode;
 	completedTasksHolder.appendChild(listItem);
 	bindTaskEvents(listItem, taskIncomplete);
@@ -87,7 +89,7 @@ var taskCompleted = function(){
 
 // Mark tasks as incomplete 
 var taskIncomplete = function(){
-
+console.log("task imcomplete");
 	var listItem = this.parentNode;
     incompleteTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
