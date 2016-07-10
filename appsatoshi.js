@@ -58,7 +58,7 @@ var addTask = function(){ // these are all event handlers
 	todo.innerHTML = "Todo: " + incompleteTasksHolder.children.length;
     completed.innerHTML = "Completed: " + completedTasksHolder.children.length;
 	// change input value to blank string to clear the input field after adding task
-	alert(taskInput.value+"が新たに追加されました！いよっ！社畜！");
+	alert(taskInput.value+" is newly added to the Todo list！Congrats！");
 	taskInput.value = '';
 
 };
