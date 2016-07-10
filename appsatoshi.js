@@ -36,8 +36,10 @@ listItem.appendChild(deleteButton);
 incompleteTasksHolder.appendChild(listItem);
 //bind to each interactivity
 bindTaskEvents(listItem, taskCompleted);
+　//count Todo tasks and Completed tasks and insert the number
 　todo.innerHTML = "Todo: " + incompleteTasksHolder.children.length;
   completed.innerHTML = "Completed: " + completedTasksHolder.children.length;
+  //alert function
 	alert(taskInput.value+" is newly added to the Todo list！Congrats！");
 	taskInput.value = '';
 //initialization
