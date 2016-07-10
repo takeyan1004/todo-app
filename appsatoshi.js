@@ -1,7 +1,3 @@
-// Problem: UI doesn't provide desired results (nothing happens when you click things)
-// Solution: Add interactivity so user can manage their daily tasks 
-
-// Plan! 
 
 // Select elements in the DOM 
 var taskInput = document.getElementById('new-task'); // element with ID of #new-task 
@@ -10,58 +6,43 @@ var incompleteTasksHolder = document.getElementById('incomplete-tasks'); // ul w
 var completedTasksHolder = document.getElementById('completed-tasks'); // #completed-tasks 
 
 // new task li
-var createNewTaskElement = function(taskString) {
-	// create li
-	var listItem = document.createElement('li');
 
-	// input (checkbox)
-	var checkBox = document.createElement('input'); // checkbox
-	// label
-	var label = document.createElement('label');
-	// edit input (text)
-	var editInput = document.createElement('input');
-	// button.edit
-	var editButton = document.createElement('button');
-	// button.delete
-	var deleteButton = document.createElement('button');
+var addTask = function(){
+console.log("added a task");
+//make the lists
+var listItem = document.createElement("li");
 
-	// each of these elements needs to be modified and appended
-	checkBox.type = "checkbox"; // each element has a type property, refer to style.css 
-	editInput.type = "text";
+var checkBox = document.createElement("input");
+var label = document.createElement("label");
+var editInput = document.createElement("input");
+var editButton = document.createElement("button");
+var deleteButton = document.createElement("button");
+checkBox.type = "checkbox";
+editInput.type = "text";
 
-	editButton.innerText = "Edit";  
-	editButton.className = "edit";
-	deleteButton.innerText = "Delete"; 
-	deleteButton.className = "delete";
+editButton.innerText = "Edit";
+editButton.className = "edit";
+deleteButton.innerText = "Delete";
+deleteButton.className = "delete";
 
-	label.innerText = taskString;
+label.innerText = taskInput.value;
 
-	listItem.appendChild(checkBox);
-	listItem.appendChild(label);
-	listItem.appendChild(editInput);
-	listItem.appendChild(editButton);
-	listItem.appendChild(deleteButton);
+listItem.appendChild(checkBox);
+listItem.appendChild(label);
+listItem.appendChild(editInput);
+listItem.appendChild(editButton);
+listItem.appendChild(deleteButton);
 
-	return listItem;
-};
-
-// Add new tasks
-var addTask = function(){ // these are all event handlers 
-	// console.log("Add task..."); // just checking to see that this event handler function is triggered 
-	// create new list item and add it to ul:
-	var listItem = createNewTaskElement(taskInput.value);
-
-	// append listItem to incompleteTasksHolder
-	incompleteTasksHolder.appendChild(listItem);
-	bindTaskEvents(listItem, taskCompleted);
-
-	todo.innerHTML = "Todo: " + incompleteTasksHolder.children.length;
-    completed.innerHTML = "Completed: " + completedTasksHolder.children.length;
-	// change input value to blank string to clear the input field after adding task
+incompleteTasksHolder.appendChild(listItem);
+//bind to each interactivity
+bindTaskEvents(listItem, taskCompleted);
+　todo.innerHTML = "Todo: " + incompleteTasksHolder.children.length;
+  completed.innerHTML = "Completed: " + completedTasksHolder.children.length;
 	alert(taskInput.value+" is newly added to the Todo list！Congrats！");
 	taskInput.value = '';
-
-};
+//initialization
+taskInput.value = "";
+}
 
 // Edit existing tasks 
 var editTask = function(){
